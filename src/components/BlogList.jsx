@@ -76,7 +76,7 @@ const BlogList = () => {
         {!isLoading && posts?.length === 0 && <p>No search results</p>}
 
         {/* Initial loading skeleton */}
-        {isLoading && <SkeletonListItems />}
+        {isLoading && !posts && <SkeletonListItems />}
 
         <InfiniteScroll
           className={classes.blog_list__wrapper}
