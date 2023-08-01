@@ -22,3 +22,8 @@ node app.js
 
 At this moment server should run on: http://localhost:3000/
 and app on: http://localhost:4173/
+
+## Tests
+```
+npm test
+```
