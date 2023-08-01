@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { Fragment, useState } from "react";
 import classes from "./SortBy.module.css";
 import Popover from "@mui/material/Popover";
@@ -77,7 +79,12 @@ const SortBy = () => {
 
   return (
     <div className={classes.sort__wrapper}>
-      <button className={classes.sort__button} onClick={handleClick}>
+      <button
+        className={classes.sort__button}
+        onClick={handleClick}
+        id="sort_button"
+        aria-label="sort_button"
+      >
         <i className="fa fa-sort-amount-asc" aria-hidden="true"></i>
       </button>
       {open && (

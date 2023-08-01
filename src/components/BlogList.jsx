@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import classes from "./BlogList.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { NodeJsAPI } from "../../routes/api-routes";
@@ -7,6 +9,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import useDebounce from "../hooks/useDebounce";
 import SkeletonListItems from "./skeleton/SkeletonListItems";
+import axios from "axios";
 
 const BlogList = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -16,14 +19,14 @@ const BlogList = () => {
   const { data, error, isError, isLoading } = useQuery(
     ["BlogList", debounedSearchValue, sort],
     async () => {
-      const res = await fetch(NodeJsAPI.posts(debounedSearchValue, sort));
-      if (!res.ok) {
-        throw new Error(
-          "Wystąpił błąd komunikacji z serwerem, spróbuj ponownie później."
+      try {
+        const res = await axios.get(
+          NodeJsAPI.posts({ searchValue: debounedSearchValue, sort })
         );
+        return res.data || [];
+      } catch (err) {
+        throw new Error("An error occurred while fetching data.");
       }
-      const data = await res.json();
-      return data;
     },
     {
       refetchOnWindowFocus: false,
@@ -36,7 +39,8 @@ const BlogList = () => {
 
   if (isError) {
     return (
-      <div>
+      <div className={classes.blog_list}>
+        <SearchBar searchHandler={searchHandler} searchValue={searchValue} />
         <p>{error.message}</p>
       </div>
     );

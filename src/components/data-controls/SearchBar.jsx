@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import classes from "./SearchBar.module.css";
 import SortBy from "./SortBy";
 
@@ -9,6 +11,7 @@ const SearchBar = ({ searchValue, searchHandler }) => {
           <i className="fa fa-search"></i>
         </span>
         <input
+          data-testid="search-input"
           type="search"
           id="search"
           className={classes.search_bar__inner__input}

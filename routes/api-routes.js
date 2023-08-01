@@ -5,9 +5,8 @@ export const API = {
 };
 
 export const NodeJsAPI = {
-  posts: (searchValue, sort) =>
-    `${baseUrl}/posts${sort ? `?sort=${sort}` : ""}${
-      searchValue ? `&title=${searchValue}` : ""
+  posts: ({ sort, searchValue } = {}) =>
+    `${baseUrl}/posts${sort ? `?sort=${sort}` : ""}${searchValue ? `&title=${searchValue}` : ""
     }`,
-  posts_trending: `${baseUrl}/posts_trending`,
+  posts_trending: `${baseUrl}/posts?trending=true`,
 };

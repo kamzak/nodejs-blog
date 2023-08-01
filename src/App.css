@@ -19,6 +19,7 @@ header {
 }
 
 .logo {
+  width: 3em;
   height: 3em;
   will-change: filter;
   transition: filter 300ms;

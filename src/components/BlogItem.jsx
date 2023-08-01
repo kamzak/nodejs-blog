@@ -1,9 +1,11 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 import { Avatar } from "@mui/material";
 import classes from "./BlogItem.module.css";
 
 const BlogItem = ({ item }) => {
   return (
-    <div className={classes.card}>
+    <div className={classes.card} data-testid="blog-item">
       <div className={classes.card__top}>
         <Avatar sx={{ width: 42, height: 42 }} />
         <div>

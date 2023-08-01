@@ -1,14 +1,17 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { Box, Skeleton } from "@mui/material";
 import classes from "./SkeletonListItems.module.css";
 
 const SkeletonListItems = () => {
   return (
-    <div className={classes.skeleton}>
+    <div className={classes.skeleton} data-testid="skeleton">
       {[...Array(3)].map((_, index) => {
         return (
           <Box key={index} className={classes.skeleton__wrapper}>
             <Box className={classes.skeleton__header}>
               <Skeleton
+
                 variant="circular"
                 height={42}
                 width={42}
