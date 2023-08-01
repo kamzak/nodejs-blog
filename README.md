@@ -4,7 +4,7 @@ Simple blog made with Node.js and React.
 
 ## Technologies used:
 - **Vite** - as a build tool,
-- **React Query + Axios** - fetching and caching posts,
+- **React Query + Axios** - fetching and caching posts, infinite scroll,
 - **Redux + Redux Toolkit** - handle sorting,
 - **MUI** - for few components,
 - **Jest, React Testing Library, msw** - simple tests for fetching and rendering data.

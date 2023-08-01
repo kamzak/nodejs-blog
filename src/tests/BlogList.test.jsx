@@ -17,7 +17,9 @@ const server = setupServer(
   rest.get(ApiRoute, (req, res, ctx) => {
     // This default handler returns a successful response
     return res(
-      ctx.json([{ userId: 1, id: 1, title: "Test Title", body: "Test Body" }])
+      ctx.json({
+        posts: [{ userId: 1, id: 1, title: "Test Title", body: "Test Body" }],
+      })
     );
   })
 );

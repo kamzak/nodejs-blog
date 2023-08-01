@@ -13,10 +13,14 @@ app.get("/posts", async (req, res) => {
     const searchValue = req?.query?.title || null;
     const sortValue = req?.query?.sort || null;
     const trending = req?.query?.trending || null;
+    const limit = 10;
+    const offset = parseInt(req?.query?.offset) || 0;
 
     // Fetch data from the API
     const response = await axios.get(API.posts);
     let data = response.data;
+
+    const postsCount = data.length;
 
     // If trending is specified, sort the posts by title length (as a stand-in for trendiness)
     if (trending) {
@@ -50,8 +54,11 @@ app.get("/posts", async (req, res) => {
             break;
         }
       }
+      // Apply pagination
+      data = data.slice(offset, offset + limit);
+
       // Return the resulting data
-      res.json(data);
+      res.json({ posts: [...data], postsCount });
     }
   } catch (error) {
     res.status(500).json({ error: "An error occurred while fetching data." });
