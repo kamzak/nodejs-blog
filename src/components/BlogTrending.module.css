@@ -1,0 +1,20 @@
+.blog_trend {
+  flex: 1 0 0;
+  min-width: 300px;
+  padding: 0 1em 1em 1em;
+  background: var(--wrapper-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  height: fit-content;
+}
+
+.blog_trend__title {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.blog_trend__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}

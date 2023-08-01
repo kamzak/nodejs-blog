@@ -1,0 +1,51 @@
+.sort__wrapper {
+  display: flex;
+}
+
+.sort__button {
+  width: 100%;
+  min-width: 50px;
+  font-size: 1.25em;
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  background: var(--primary-item-bg-color);
+  box-shadow: var(--primary-shadow);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+}
+
+.sort__button:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+  box-shadow: var(--secondary-shadow);
+  background: var(--secondary-button-color) !important;
+}
+
+.sort__dialog {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-item-bg-color);
+}
+
+
+.sort__dialog button {
+  padding: 0.75em 1em;
+  border-radius: 0;
+  border: none;
+  background: var(--primary-button-color);
+}
+.sort__dialog__button--active {
+  background: var(--secondary-button-color) !important;
+}
+
+.sort__dialog button:hover,
+.sort__dialog button:focus,
+.sort__dialog button:active {
+  cursor: pointer;
+  outline: none;
+  background: var(--secondary-button-color);
+}
+
+.divider {
+  border-color: var(--secondary-color) !important;
+}

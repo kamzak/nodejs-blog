@@ -1,0 +1,10 @@
+.blog_list {
+  flex: 2 0 0;
+  min-width: 300px;
+}
+
+.blog_list__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}

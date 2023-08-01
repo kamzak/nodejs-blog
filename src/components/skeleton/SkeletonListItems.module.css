@@ -1,0 +1,34 @@
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+}
+
+.skeleton__wrapper {
+  background: var(--primary-item-bg-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 13em;
+  padding: 1.5em;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.skeleton__header {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.skeleton__element {
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton__element {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+}
