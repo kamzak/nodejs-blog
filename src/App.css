@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap");
+
 #root {
   max-width: 1200px;
   width: 100%;
@@ -11,11 +13,12 @@ header {
   align-items: center;
   gap: 1em;
   height: 4.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 .title {
   margin: 0;
+  font-family: "Patrick Hand SC", sans-serif;
 }
 
 .logo {

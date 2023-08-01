@@ -20,7 +20,7 @@ app.get("/posts", async (req, res) => {
     const response = await axios.get(API.posts);
     let data = response.data;
 
-    const postsCount = data.length;
+    var postsCount = data.length;
 
     // If trending is specified, sort the posts by title length (as a stand-in for trendiness)
     if (trending) {
@@ -36,6 +36,8 @@ app.get("/posts", async (req, res) => {
         data = data.filter((item) =>
           item.title.toLowerCase().includes(searchValue.toLowerCase())
         );
+
+        postsCount = data.length;
       }
       // If a sort value is specified, sort the posts accordingly
       if (sortValue) {

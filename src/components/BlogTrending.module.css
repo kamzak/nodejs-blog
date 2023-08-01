@@ -9,8 +9,12 @@
 }
 
 .blog_trend__title {
-  margin-top: 0.6em;
-  margin-bottom: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  font-size: 2em;
+  font-family: "Patrick Hand SC", sans-serif;
 }
 
 .blog_trend__wrapper {
