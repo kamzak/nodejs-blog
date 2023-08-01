@@ -1,8 +1,24 @@
-# React + Vite
+# Node.js + React Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple blog made with Node.js and React.
 
-Currently, two official plugins are available:
+## Technologies used:
+- **Vite** - as a build tool,
+- **React Query + Axios** - fetching and caching posts,
+- **Redux + Redux Toolkit** - handle sorting,
+- **MUI** - for few components,
+- **Jest, React Testing Library, msw** - simple tests for fetching and rendering data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+To run this project, install it locally using npm:
+```
+npm install
+npm run preview
+
+------- open new terminal -------
+cd app-server
+node app.js
+```
+
+At this moment server should run on: http://localhost:3000/
+and app on: http://localhost:4173/
