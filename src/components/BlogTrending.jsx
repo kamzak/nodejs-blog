@@ -41,7 +41,9 @@ const BlogTrending = () => {
         {!isLoading && data?.length === 0 && <p>No search results</p>}
 
         {!isLoading ? (
-          data?.map((item) => <BlogItem key={item?.id} item={item} />)
+          data?.map((item) => (
+            <BlogItem key={item?.id} item={item} />
+          ))
         ) : (
           <SkeletonListItems />
         )}

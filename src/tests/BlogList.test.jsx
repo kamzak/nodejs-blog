@@ -9,12 +9,14 @@ import BlogList from "../components/BlogList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NodeJsAPI } from "../../routes/api-routes";
 
-// Get api route
-const ApiRoute = NodeJsAPI.posts();
-
 // Create server with the defined handlers
 const server = setupServer(
-  rest.get(ApiRoute, (req, res, ctx) => {
+  rest.get(NodeJsAPI.posts_test, (req, res, ctx) => {
+    // Defined to disable warn in tests
+    // eslint-disable-next-line no-unused-vars
+    const sort = req.url.searchParams.get("sort");
+    // eslint-disable-next-line no-unused-vars
+    const offset = req.url.searchParams.get("offset");
     // This default handler returns a successful response
     return res(
       ctx.json({
@@ -61,7 +63,12 @@ test("renders blog list", async () => {
 test("handles error state", async () => {
   // Override the default handler for this specific test
   server.use(
-    rest.get(ApiRoute, (req, res, ctx) => {
+    rest.get(NodeJsAPI.posts_test, (req, res, ctx) => {
+      // Defined to disable warn in tests
+      // eslint-disable-next-line no-unused-vars
+      const sort = req.url.searchParams.get("sort");
+      // eslint-disable-next-line no-unused-vars
+      const offset = req.url.searchParams.get("offset");
       return res(ctx.status(500));
     })
   );

@@ -8,3 +8,7 @@
   flex-direction: column;
   gap: 1em;
 }
+
+.error {
+  margin-bottom: 1em;
+}

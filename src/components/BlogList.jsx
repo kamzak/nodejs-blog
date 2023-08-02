@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./BlogList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { NodeJsAPI } from "../../routes/api-routes";
@@ -11,11 +11,15 @@ import useDebounce from "../hooks/useDebounce";
 import SkeletonListItems from "./skeleton/SkeletonListItems";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import BlogTrending from "./BlogTrending";
+import { useMediaQuery } from "@mui/material";
 
 const BlogList = () => {
   const [searchValue, setSearchValue] = useState("");
   const debounedSearchValue = useDebounce(searchValue, 300);
   const { sort } = useSelector((state) => state.sort);
+
+  const isMobile = useMediaQuery("(max-width:680px)");
 
   const { data, fetchNextPage, hasNextPage, error, isError, isLoading } =
     useInfiniteQuery({
@@ -64,7 +68,9 @@ const BlogList = () => {
     return (
       <div className={classes.blog_list}>
         <SearchBar searchHandler={searchHandler} searchValue={searchValue} />
-        <p>{error.message}</p>
+        <p className={classes.error}>{error.message}</p>
+
+        {isMobile ? <BlogTrending /> : null}
       </div>
     );
   }
@@ -73,7 +79,12 @@ const BlogList = () => {
     <section className={classes.blog_list}>
       <SearchBar searchHandler={searchHandler} searchValue={searchValue} />
       <div className={classes.blog_list__wrapper}>
-        {!isLoading && posts?.length === 0 && <p>No search results</p>}
+        {!isLoading && posts?.length === 0 && (
+          <Fragment>
+            <p>No search results</p>
+            {isMobile ? <BlogTrending /> : null}
+          </Fragment>
+        )}
 
         {/* Initial loading skeleton */}
         {isLoading && !posts && <SkeletonListItems />}
@@ -86,7 +97,20 @@ const BlogList = () => {
           loader={<SkeletonListItems />}
         >
           {posts &&
-            posts?.map((item) => <BlogItem key={item.id} item={item} />)}
+            posts?.map((item, index) => {
+              // Show trendings on mobile after max 10 posts
+              // If posts < 10, show trendings after last post
+              const showTrending =
+                (posts.length >= 10 && index === 9) ||
+                (posts.length < 10 && index === posts.length - 1);
+
+              return (
+                <Fragment key={item.id}>
+                  <BlogItem item={item} />
+                  {showTrending && isMobile && <BlogTrending />}
+                </Fragment>
+              );
+            })}
         </InfiniteScroll>
       </div>
     </section>

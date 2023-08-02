@@ -14,7 +14,7 @@
   padding: 1.5em;
   box-sizing: border-box;
   border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-border-color);
 }
 
 .skeleton__header {

@@ -35,7 +35,7 @@
   -webkit-border-radius: var(--border-radius);
   -moz-border-radius: var(--border-radius);
   border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-border-color);
 
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;

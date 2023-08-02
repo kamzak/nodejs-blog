@@ -7,7 +7,7 @@
   min-width: 50px;
   font-size: 1.25em;
   color: var(--secondary-color);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-border-color);
   background: var(--primary-item-bg-color);
   box-shadow: var(--primary-shadow);
   border-radius: var(--border-radius);

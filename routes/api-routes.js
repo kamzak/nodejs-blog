@@ -6,7 +6,8 @@ export const API = {
 
 export const NodeJsAPI = {
   posts: ({ sort, searchValue, prevOffset = 0 } = {}) =>
-    `${baseUrl}/posts${sort ? `?sort=${sort}` : ""}${searchValue ? `&title=${searchValue}` : ""
-    }${prevOffset ? `&offset=${prevOffset}` : ""}`,
+    `${baseUrl}/posts${sort ? `?sort=${sort}` : "?sort=ascending"}${searchValue ? `&title=${searchValue}` : ""
+    }${`&offset=${prevOffset}`}`,
   posts_trending: `${baseUrl}/posts?trending=true`,
+  posts_test: "http://localhost:3000/posts",
 };

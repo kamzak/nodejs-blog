@@ -57,10 +57,10 @@ app.get("/posts", async (req, res) => {
         }
       }
       // Apply pagination
-      data = data.slice(offset, offset + limit);
+      const paginatedData = data.slice(offset, offset + limit);
 
       // Return the resulting data
-      res.json({ posts: [...data], postsCount });
+      res.json({ posts: [...paginatedData], postsCount });
     }
   } catch (error) {
     res.status(500).json({ error: "An error occurred while fetching data." });
